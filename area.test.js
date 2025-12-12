@@ -14,4 +14,18 @@ describe('should calculate area for a given shape', () => {
 
         expect(result).toStrictEqual(154)
     });
+
+    test('should return the area of a triangle', () => {
+        const shape = [1, 2, 7, 5, 3, 10]
+        const result = calculateArea(shape)
+
+        expect(result).toStrictEqual(21)
+    });
+
+    test('should return the area of a rectangle', () => {
+        const shape = [1, 1, 9, 1, 9, 6, 1, 6]
+        const result = calculateArea(shape)
+
+        expect(result).toStrictEqual(40)
+    });
 });
