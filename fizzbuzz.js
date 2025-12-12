@@ -1,24 +1,20 @@
 export function fizzBuzz(n) {
-    const output = [];
+    return Array.from({ length: n }, (a, i) => i+1)
+        .map(mapFizzBuzz);
+}
 
-    for (let i = 1; i <= n; i++) {
-        if(i % 5 === 0 && i % 3 === 0) {
-            output.push("FizzBuzz");
-            continue;
-        }
-
-        if(i % 3 === 0) {
-            output.push("Fizz");
-            continue
-        }
-
-        if(i % 5 === 0) {
-            output.push("Buzz");
-            continue;
-        }
-
-        output.push("" + i);
+function mapFizzBuzz(i) {
+    if(i % 5 === 0 && i % 3 === 0) {
+        return "FizzBuzz";
     }
 
-    return output;
+    if(i % 3 === 0) {
+        return "Fizz";
+    }
+
+    if(i % 5 === 0) {
+        return "Buzz";
+    }
+
+    return ""+i;
 }
