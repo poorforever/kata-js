@@ -1,34 +1,31 @@
-export function calculateArea(shape) {
-    if(shape.length < 1){
-        return 0;
+export function calculateArea(input) {
+    switch(input.length) {
+        case 0:
+            return 0
+        case 1:
+            return circleArea(input)
+        case 6:
+            return triangleArea(input)
+        case 8:
+            return rectangleArea(input)
     }
+}
 
-    if (shape.length == 1) {
-        return Math.round(Math.PI * Math.pow(shape[0], 2));
-    }
+function circleArea(input) {
+    return Math.round(Math.PI * Math.pow(input[0], 2));
+}
 
-    if(shape.length == 6){
-        const xA = shape[0];
-        const yA = shape[1];
-        const xB = shape[2];
-        const yB = shape[3];
-        const xC = shape[4];
-        const yC = shape[5];
+function triangleArea(input) {
+    const [xA, yA, xB, yB, xC, yC] = input
 
-        return 0.5 * Math.abs(xA * (yB - yC) + xB * (yC - yA) + xC * (yA - yB))
-    }
+    return 0.5 * Math.abs(xA * (yB - yC) + xB * (yC - yA) + xC * (yA - yB))
+}
 
-    if(shape.length == 8){
-        const xA = shape[0];
-        const yA = shape[1];
-        const xB = shape[2];
-        const yB = shape[3];
-        const xC = shape[4];
-        const yC = shape[5];
+function rectangleArea(input) {
+    const [xA, yA, xB, yB, xC, yC] = input
 
-        const dAB = Math.sqrt((xA-xB)**2+(yA-yB)**2)
-        const dBC = Math.sqrt((xB-xC)**2+(yB-yC)**2)
+    const dAB = Math.sqrt((xA-xB)**2+(yA-yB)**2)
+    const dBC = Math.sqrt((xB-xC)**2+(yB-yC)**2)
 
-        return dAB * dBC;
-    }
+    return dAB * dBC;
 }
