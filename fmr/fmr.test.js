@@ -1,4 +1,4 @@
-import {array_sqrt} from "./fmr.js";
+import {array_sqrt, array_integer} from "./fmr.js";
 
 describe('Should compute square roots of elements in an array', () => {
     test('Should return []', () => {
@@ -8,7 +8,7 @@ describe('Should compute square roots of elements in an array', () => {
         expect(output).toEqual([]);
     });
 
-    test('Should return square roots of elements', () => {
+    test('Should return [2, 3, 4]', () => {
         const elements = [4, 9, 16];
         const output = array_sqrt(elements);
 
@@ -22,4 +22,27 @@ describe('Should compute square roots of elements in an array', () => {
 
         expect(output).toEqual([0, 1, 2, 3, 4, 7, 9, 11, 12, 20, 100]);
     })
-})
+});
+
+describe('Should filter and keep only integers', () => {
+    test('Should return []', () => {
+        const elements = [];
+        const output = array_integer(elements);
+
+        expect(output).toEqual([]);
+    });
+
+    test('Should return [0, 1, 2, 3]', () => {
+        const elements = [0, 1, 1.41, 1.73, 2, 2.23, 2.44, 2.64, 2.82, 3];
+        const output = array_integer(elements);
+
+        expect(output).toEqual([0, 1, 2, 3]);
+    })
+
+    test('Should return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]', () => {
+        const elements = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const output = array_integer(elements);
+
+        expect(output).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    })
+});
