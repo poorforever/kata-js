@@ -1,4 +1,4 @@
-import {array_sqrt, array_integer, array_sum, perfect_square_root_sum} from "./fmr.js";
+import {array_sqrt, array_integer, array_sum, perfect_square_root_sum} from "./composition.js";
 
 describe('Should compute square roots of elements in an array', () => {
     test('[] => []', () => {
@@ -85,9 +85,16 @@ describe('Should compute sums of square roots of perfect squares', () => {
     });
 
     test('[1, 2,..., 100] => 55', () => {
-        const elements = Array.from({ length: 100 }, (_, i) => i + 1);;
+        const elements = Array.from({ length: 100 }, (_, i) => i + 1);
         const output = perfect_square_root_sum(elements);
 
         expect(output).toEqual(55);
+    });
+
+    test('[1, 2,..., 2347] => 1176', () => {
+        const elements = Array.from({ length: 2347 }, (_, i) => i + 1);
+        const output = perfect_square_root_sum(elements);
+
+        expect(output).toEqual(1176);
     });
 })
