@@ -9,3 +9,7 @@ export function array_integer(elements) {
 export function array_sum(elements) {
     return elements.reduce((sum, element) => sum + element, 0);
 }
+
+export function perfect_square_root_sum(elements) {
+    return array_sum(array_integer(array_sqrt(elements)));
+}
