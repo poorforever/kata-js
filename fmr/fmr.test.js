@@ -1,4 +1,4 @@
-import {array_sqrt, array_integer} from "./fmr.js";
+import {array_sqrt, array_integer, array_sum} from "./fmr.js";
 
 describe('Should compute square roots of elements in an array', () => {
     test('Should return []', () => {
@@ -46,3 +46,33 @@ describe('Should filter and keep only integers', () => {
         expect(output).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
     })
 });
+
+describe('Should sum elements of an array', () => {
+    test('Should return []', () => {
+        const elements = [];
+        const output = array_sum(elements);
+
+        expect(output).toEqual(0);
+    });
+
+    test('[1, 2, 3] => 6', () => {
+        const elements = [1, 2, 3];
+        const output = array_sum(elements);
+
+        expect(output).toEqual(6);
+    });
+
+    test('[1, 2, 3, 4, 5, 6, 7] => 28', () => {
+        const elements = [1, 2, 3, 4, 5, 6, 7];
+        const output = array_sum(elements);
+
+        expect(output).toEqual(28);
+    });
+
+    test('[2, 4, 6, 8, 10, 12, 14] => 56', () => {
+        const elements = [2, 4, 6, 8, 10, 12, 14];
+        const output = array_sum(elements);
+
+        expect(output).toEqual(56);
+    });
+})
